@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Primary colors */
+  --preset-primary-pine-tree: #2b2b1b;
+  --preset-primary-burnished-brown: #a88176;
+  --preset-primary-tumble-weed: #d79b87;
+  --preset-primary-dust-storm: #edcfbe;
+  --preset-primary-silver-pink: #cdb4b2;
+
+  /* Secondary colors */
+  --preset-secondary-floral-white: #faf7ef;
+  --preset-secondary-black-olive: #32372c;
+  --preset-secondary-carbon-black: #121314;
+
+  /* Font family */
+  --preset-font-instrument-serif: "Instrument Serif", serif;
+  --preset-font-italianno: "Italianno", cursive;
+  --preset-font-montserrat: "Montserrat", sans-serif;
+  --preset-font-mea-culpa: "Mea Culpa", cursive;
+}
+
+body {
+  background: var(--preset-primary-pine-tree);
+  width: 100vw;
+  height: 100vh;
+}
+
+/* -----------Header with navbar----------- */
+header {
+  background-color: var(--preset-primary-burnished-brown);
+  padding: 20px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+a {
+  color: var(--preset-secondary-black-olive);
+  font-family: var(--preset-font-montserrat);
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--preset-secondary-black-olive);
+  display: inline-block;
+  padding: 10px 40px;
+}
+a:hover {
+  color: var(--preset-secondary-floral-white);
+  background-color: var(--preset-secondary-black-olive);
+  text-decoration: none;
+}
+/* -------------------------------------- */
+/* --------------hero----------------- */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
+  width: 100%;
+}
+/* -------------------------------------- */
+/* ----------Font Display------------- */
+.fonts {
+  color: var(--preset-primary-dust-storm);
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: 1;
+  padding: 100px 50px 100px 150px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(
+    43,
+    43,
+    27,
+    0.5
+  ); /* mørk grønnlig bakgrunn med 50% gjennomsiktighet */
+}
+#Instrumentserif {
+  font-family: var(--preset-font-instrument-serif);
+  font-size: 40px;
+}
+#Italianno {
+  font-family: var(--preset-font-italianno);
+  font-size: 40px;
+}
+
+/* ----------------------------------- */
+/* ---------------Intro text------------ */
+.intro {
+  position: relative;
+  grid-area: 1 / 2 / 3 / 3;
+  overflow: hidden;
+  flex-direction: column;
+  height: 377px;
+  background-color: rgba(
+    43,
+    43,
+    27,
+    0.5
+  ); /* mørk grønnlig bakgrunn med 50% gjennomsiktighet */
+  display: flex;
+  flex-direction: column; /* Gjør at tekstene havner under hverandre */
+  align-items: center; /* Sentrerer horisontalt */
+  justify-content: center; /* Sentrerer vertikalt */
+}
+/* Bildet dekker høyre side, full høyde */
+#white-flowers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  border-radius: 0 0 0 50%;
+  transform: rotate(-20deg); /* roter 20 grader mot venstre */
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Felles styling for begge tekstblokker */
+.introtext {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--preset-secondary-floral-white);
+  font-family: var(--preset-font-montserrat);
+  font-weight: 200;
+  padding: 10px 20px;
+  margin-right: 140px;
+  max-width: 600px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  /* background-color: rgba(
+      43,
+      43,
+      27,
+      0.5
+    ); mørk grønnlig bakgrunn med 50% gjennomsiktighet */
+}
+/* bokstav med spesialfont */
+#Meaculpa {
+  font-family: var(--preset-font-mea-culpa);
+  font-size: 25px;
+  color: var(--preset-secondary-floral-white);
+  text-shadow: 0 0 5px #f0c7b8, 0 0 10px #f0c7b8, 0 0 20px #f0c7b8,
+    0 0 40px #f0c7b8;
+}
+/* ------------------------------------------------------ */
+/* -------------- Color palette section ------------------- */
+.colorpalette {
+  grid-area: 3 / 1 / 4 / 3;
+  display: flex;
+  flex-direction: row; /* Endre til row for å plassere alt på én linje */
+  justify-content: space-evenly; /* Fordeler plass mellom seksjonene */
+  align-items: flex-start; /* Align seksjonene til toppen */
+  width: 100%; /* Fyller hele bredden av seksjonen */
+  height: 100%; /* Fyller hele høyden av seksjonen */
+  position: relative;
+}
+.corner-flower {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  transform: rotate(-15deg) scaleX(-1);
+  pointer-events: none; /* Forhindrer at bildet påvirker interaksjoner med andre elementer */
+  z-index: 0;
+}
+/* ----------------------------------- */
+/* ---------color section------- */
+#title {
+  font-family: var(--preset-font-italianno);
+  font-size: 2.3rem;
+  color: var(--preset-primary-dust-storm);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.help-text {
+  font-size: 0.85rem;
+  color: var(--preset-primary-dust-storm);
+  margin-top: -5px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+  font-family: var(--preset-font-montserrat);
+}
+#primarycolors > .colors {
+  position: relative; /* Sikre at innholdet er plassert korrekt */
+  z-index: 1; /* Tvinge innholdet til å være over bildet */
+}
+#primarycolors {
+  position: relative;
+  z-index: 1;
+  padding-left: 50px;
+  width: 50%;
+}
+#primarycolors,
+#secondarycolors {
+  display: flex;
+  flex-direction: column; /* Fargene vises vertikalt i hver seksjon */
+  align-items: center;
+  justify-content: flex-start; /* Fargene stables fra toppen */
+}
+/* ----------------------------------- */
+/* ---------------Color Definitions ----------------*/
+#pinetree {
+  background-color: var(--preset-primary-pine-tree);
+}
+
+#burnishedbrown {
+  background-color: var(--preset-primary-burnished-brown);
+}
+
+#tumbleweed {
+  background-color: var(--preset-primary-tumble-weed);
+}
+
+#duststorm {
+  background-color: var(--preset-primary-dust-storm);
+}
+
+#silverpink {
+  background-color: var(--preset-primary-silver-pink);
+}
+
+#floralwhite {
+  background-color: var(--preset-secondary-floral-white);
+}
+
+#blackolive {
+  background-color: var(--preset-secondary-black-olive);
+}
+
+#carbonblack {
+  background-color: var(--preset-secondary-carbon-black);
+}
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  font-family: var(--preset-font-montserrat);
+  font-size: 0.8rem;
+  color: var(--preset-primary-dust-storm);
+  text-align: center;
+}
+
+.colors {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.primary,
+.secondary {
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+.primary:hover,
+.secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+/* -------------------------------------------- */
+/* ------------functional colorboxes------------ */
+/* Denne brukes til tekst som "Copy" */
+.copy-text {
+  font-size: 0.9rem;
+  color: var(--preset-secondary-floral-white);
+  margin-top: 6px;
+}
+
+.color-box {
+  width: 80px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--preset-secondary-floral-white);
+  border-radius: 0;
+  z-index: 1;
+  transition: background-color 0.2s ease;
+}
+/* Tekst som vises ved hover */
+.copy-label {
+  opacity: 0;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.color-box:hover .copy-label {
+  opacity: 1;
+}
+/* Hover-effekt uten å endre tekstfarge */
+.color-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease;
+  z-index: 0;
+}
+.color-box:hover::after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* ------------------------------------- */
+/* ------------typewriter ----------------*/
+#hero-typewriter {
+  position: relative;
+  white-space: pre-wrap; /* for linjeskift */
+}
+
+#hero-typewriter::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+  font-weight: bold;
+  color: var(--preset-primary-dust-storm);
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
