@@ -17,6 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// Venter til hele HTML-dokumentet er ferdig lastet (DOMContentLoaded).
+
+// Finn alle elementer med klassen .color-box.
+
+// Henter en data-hex-verdi fra hvert element (f.eks. data-hex="#FF0000").
+
+// Setter backgroundColor på boksen.
+
+// Når brukeren klikker på boksen:
+
+// Fargekoden kopieres til utklippstavlen.
+
+// En etikett med klassen .copy-label viser "Copied!" i 1,2 sekunder, deretter "Copy".
+// -------------------------------------------------------------------------
 
 function typeWriterHTML(element, speed = 30) {
   const originalHTML = element.innerHTML;
@@ -26,8 +40,6 @@ function typeWriterHTML(element, speed = 30) {
 
   const tokens = [];
 
-  // Traverserer og bygger opp tokens rekursivt,
-  // bevarer tagger og legger til tekst som enkelttegn
   function traverse(node) {
     if (node.nodeType === Node.TEXT_NODE) {
       for (const char of node.textContent) {
@@ -44,22 +56,18 @@ function typeWriterHTML(element, speed = 30) {
         // Legg barna som child-noder på dette elementet
         childTokens.forEach((childNode) => el.appendChild(childNode));
       }
-      // Returner tom liste for å unngå doble push utenfor
+
       return [];
     }
     return [tokens.pop()];
   }
 
-  // Kjør traverse for hver child node i tempDiv og samle tokens
   const newTokens = [];
   for (const child of tempDiv.childNodes) {
     const result = traverse(child);
-    // Result er som regel tom liste, fordi tokens legges til inne i traverse
-    // Men tekstnoder returneres i array
     if (result.length) newTokens.push(...result);
   }
 
-  // Erstatt tokens med newTokens hvis de ble funnet
   if (newTokens.length) tokens.push(...newTokens);
 
   let i = 0;
@@ -76,6 +84,15 @@ function typeWriterHTML(element, speed = 30) {
 
   type();
 }
+// Tar inn et HTML-element og skriver ut innholdet karakter for karakter (typewriter-effekt), men bevarer all HTML-struktur (f.eks. <strong>, <a>, osv.).
+
+// Først henter den eksisterende innerHTML.
+
+// Så analyserer den HTML-strukturen og deler opp alt innhold i "tokens" — en liste med enten tekst-tegn eller HTML-elementer.
+
+// Den bygger deretter opp dette innholdet gradvis ved å bruke setTimeout.
+
+// --------------------------------------------
 
 window.addEventListener("load", () => {
   document.body.classList.add("show");
@@ -84,3 +101,6 @@ window.addEventListener("load", () => {
     typeWriterHTML(target, 35);
   }
 });
+// Når hele siden er lastet (inkludert bilder, CSS osv.), legger den til klassen show på <body> – ofte brukt til fade-in-effekter med CSS.
+
+// Deretter kjører den typeWriterHTML på elementet med ID hero-typewriter.
